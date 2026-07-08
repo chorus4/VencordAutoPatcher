@@ -23,4 +23,4 @@ jobs:
         with:
           artifacts: 'target/release/VencordAutoPatcher.exe'
           bodyFile: 'body.md'
-          tag: ${{ github.run_number }}
+          tag: v1.0.${{ github.run_number }}
