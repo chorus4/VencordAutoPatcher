@@ -15,8 +15,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
       - name: Build
         run: cargo build --release
 
-      - name: Ls
-        run: dir
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: 'target/release/VencordAutoPatcher.exe'
+          bodyFile: 'body.md'
