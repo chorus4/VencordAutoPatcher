@@ -39,4 +39,12 @@ fn main_menu() {
     } else if option == 2 {
         installer::uninstall();
     }
+
+    println!("");
+    println!("Press Enter to exit...");
+
+    let mut qqq = String::new();
+    io::stdin()
+        .read_line(&mut qqq)
+        .expect("Please type valid value");
 }

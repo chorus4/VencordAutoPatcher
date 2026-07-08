@@ -31,6 +31,7 @@ pub fn install() {
 
     io::copy(&mut installer_old_file, &mut installer_file).expect("failed to copy content");
 
+    println!("Adding autostart to registry");
     registry::add_autostart_registry(&installer_path);
 }
 
@@ -41,5 +42,7 @@ pub fn uninstall() {
     appdata.push("VencordAutoPatcher");
 
     fs::remove_dir_all(appdata).expect("Failed to remove dir");
+    
+    println!("Deleting autostart from registry");
     registry::remove_autostart_registry();
 }
