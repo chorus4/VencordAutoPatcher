@@ -15,8 +15,12 @@ pub fn patch_discord() {
         .output()
         .expect("Failed to spawn command");
 
+
+    let mut discord = dirs::data_local_dir().expect("Failed to get Local dir");
+    discord.push("Discord\\Update.exe");
+
     Command::new("cmd")
-        .args(["/C", "start", "", "discord://"])
+        .args(["/C", &format!("{} --processStart Discord.exe --process-start-args --start-minimized", &discord.display().to_string())])
         .output()
         .expect("Failed to start discord");
 }
